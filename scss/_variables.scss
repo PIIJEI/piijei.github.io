@@ -1,0 +1,31 @@
+// General Color Variables
+$cararra        : #E4E4DC;
+$desertStorm    : #EFEFED;
+$tuatara        : #383735;
+$cameo          : #D7B0A1;
+
+// Key Colors
+$lightGray      : $desertStorm;
+$dark           : $tuatara;
+
+// Main Colors
+$textColor      : $dark;
+$keyTextColor   : $cameo; 
+$background     : $cararra;
+$footerBg       : $lightGray;  
+
+// Styling Guide
+$headerTextBorder   : 3px solid $lightGray;
+$headerTextColor    : $lightGray;
+$primaryBoxBorder   : 2px solid $dark;
+$primaryBoxBg       : $lightGray;  
+$secondaryBoxBorder : 3px solid $cararra;
+$postScriptum       : $cameo;
+$secondaryBoxBg     : $cameo;
+$secondaryBoxText   : $lightGray;
+$footerBrand        : $keyTextColor;  
+
+// Fonts Settings
+$openSansRegular    : 'Open Sans Regular', sans-serif;
+$openSansBold       : 'Open Sans Bold', sans-serif;
+$timesNewRoman      : 'Times New Roman', Times, serif;

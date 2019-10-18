@@ -1,0 +1,61 @@
+@mixin min-screen($size) {
+    @if $size == mobile {
+        @media (max-width: 639px) {
+            @content;
+        }
+    }
+    @else if $size == xl-mobile {
+        @media (min-width: 640px) {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media (min-width: 960px) {
+            @content;
+        }
+    }
+    @else if $size == desktop {
+        @media (min-width: 1024px) {
+            @content;
+        }
+    }
+    @else if $size == x-desktop {
+        @media (min-width: 1280px) {
+            @content;
+        }
+    }
+    @else if $size == xl-desktop {
+        @media (min-width: 1440px) {
+            @content;
+        }
+    }
+    @else if $size == xxl-desktop {
+        @media (min-width: 1600px) {
+            @content;
+        }
+    }
+}
+
+@mixin transformX($size) {
+    -webkit-transform: translateX($size);
+    -moz-transform: translateX($size);
+    -ms-transform: translateX($size);
+    -o-transform: translateX($size);
+    transform: translateX($size);
+}
+
+@mixin transformY($size) {
+    -webkit-transform: translateY($size);
+    -moz-transform: translateY($size);
+    -ms-transform: translateY($size);
+    -o-transform: translateY($size);
+    transform: translateY($size);
+}
+
+@mixin rotate($degree) {
+    -webkit-transform: rotate($degree);
+    -moz-transform: rotate($degree);
+    -ms-transform: rotate($degree);
+    -o-transform: rotate($degree);
+    transform: rotate($degree);
+}

@@ -1,0 +1,591 @@
+@import 'scss/base';
+@import 'scss/mixins';
+@import 'scss/variables';
+@import 'scss/typography';
+
+img {
+    width: auto;
+    max-width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-image: url('images/zrzu.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    position: relative;
+    z-index: 1;
+    @include min-screen(desktop) { background-image: url('images/zrzu@2x.png'); }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(56,55,53, .4);
+        z-index: 2;
+    }
+
+    .header {
+        &-brand, &-intro, &-arrow {
+            z-index: 3;
+        }
+    }
+
+    .header-brand {
+        width: 100%;
+        max-width: calc(206px / 1.75);
+        height: 100%;
+        max-height: auto;
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        @include transformX(-50%);
+        @include min-screen(tablet) {
+            max-width: calc(206px / 1.5);
+        }  
+        @include min-screen(desktop) {
+            max-width: calc(206px / 1.3);
+        } 
+        @include min-screen(x-desktop) {
+            max-width: calc(206px / 1.15);
+        }
+        @include min-screen(xl-desktop) {
+            max-width: 206px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .header-intro {
+        display: block;
+        padding: 30px 50px;
+        border: $headerTextBorder;
+        h1 {
+            font-size: 1.5rem;
+            font-family: $timesNewRoman;
+            font-weight: 400;
+            color: $lightGray;
+            @include min-screen(tablet) {
+                font-size: 2.5em;
+            }
+            @include min-screen(desktop) {
+                font-size: 3.5em;
+            }
+            @include min-screen(x-desktop) {
+                font-size: 4.5rem;
+            }
+            @include min-screen(xl-desktop) {
+                font-size: 5.5rem;   
+            }
+        }
+    }
+    .header-arrow {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        @include transformX(-50%);
+        img {
+            width: 100%;
+            height: auto;
+        }   
+    }
+}
+
+main {
+    background: $background;
+    position: relative;
+    padding-bottom: 8rem;
+    @include min-screen(mobile) {
+        padding-bottom: 1.3rem;
+    }
+    @include min-screen(tablet) { padding-bottom: 8rem; }
+    @include min-screen(desktop) { padding-bottom: 13rem; }
+    @include min-screen(x-desktop) { padding-bottom: 13rem; }
+    @include min-screen(xl-desktop) { padding-bottom: 19rem; }
+    @include min-screen(xl-desktop) { padding-bottom: 20rem; }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;    
+        z-index: 10;
+        max-width: 95%;
+        @include min-screen(xl-mobile) { max-width: 768px; }
+        @include min-screen(tablet) { max-width: 960px; }
+        @include min-screen(desktop) { max-width: 1024px; }
+        @include min-screen(x-desktop) { max-width: 1200px; }
+        @include min-screen(xl-desktop) { max-width: 1366px; }
+        @include min-screen(xxl-desktop) { max-width: 1540px; }
+        .columns {
+            width: 100%;
+            display: inline-block;
+            box-sizing: border-box;
+            .key-info {
+                display: block;
+                font-weight: 600;
+                color: $keyTextColor;
+                line-height: 1.6;
+            }
+
+            .column-50 {
+                width: 100%;
+                float: none;
+                &.column-50-right {
+                    float: none;
+                    width: 100%;
+                    @include min-screen(mobile) {
+                        .picture {                        
+                            margin: 0 -5% 0;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+
+            @include min-screen(xl-mobile) {
+                .column-50 {
+                    width: 50%;
+                    float: left;
+                    clear: right;
+                    &.column-50-right {
+                        float: right;
+                        width: 47%;
+                    }
+                }
+            }                        
+            .column-50-right {
+                .picture {
+                    position: relative;                    
+                    z-index: 10;                    
+                    @include min-screen(xl-mobile) { top: -35%; @include transformY(-35%); }
+                    .picture-icon {
+                        position: absolute;
+                        bottom: -27px;
+                        left: -35px;
+                        z-index: 20;
+                        width: calc(115px / 1.9);
+                        @include min-screen(mobile) {
+                            bottom: -24px;
+                            left: 35px;
+                            width: 73px;
+                        }
+                        @include min-screen(tablet) { width: calc(115px / 1.7); }
+                        @include min-screen(desktop) { width: calc(115px / 1.5); }
+                        @include min-screen(x-desktop) { width: calc(115px / 1.3); }
+                        @include min-screen(xl-desktop) { width: 115px; }
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }            
+
+            .box {
+                width: 100%;
+                position: relative;
+                padding: 1px;
+                .waves {
+                    width: 115%;
+                    z-index: -1;
+                    position: absolute;
+                    top: 50%;
+                    right: -100%;
+                    @include transformX(-58%);
+                    @include min-screen(mobile) {
+                        top: 74%;
+                    }
+                    img {
+                        width: 100vw;
+                        height: auto;
+                    }
+                }
+                .box-content {
+                    padding: 13px;
+                    @include min-screen(tablet) { padding: 19px; }
+                    @include min-screen(desktop) { padding: 29px; }
+                    @include min-screen(x-desktop) { padding: 43px; }
+                    @include min-screen(xl-desktop) { padding: 65px; }
+                    .separator {
+                        content: '';
+                        display: block;
+                        height: 2px;
+                        width: 100%;
+                        margin: 23px auto;
+                        background: $dark;
+                        @include min-screen(tablet) { margin: 28px auto; }
+                        @include min-screen(desktop) { margin: 33px auto; }
+                        @include min-screen(x-desktop) { margin: 38px auto; }
+                        @include min-screen(xl-desktop) { margin: 43px auto; }
+                    }
+                    h2 {
+                        font-family: $timesNewRoman;
+                        font-weight: 400;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        line-height: 1.4;
+                        @include min-screen(tablet) { font-size: 2rem; }
+                        @include min-screen(tablet) { font-size: 2rem; }
+                        @include min-screen(desktop) { font-size: 2.5rem; }
+                        @include min-screen(x-desktop) { font-size: 3rem; }
+                        @include min-screen(xl-desktop) { font-size: 3.5rem; }
+                    }
+                    p {
+                        font-family: $openSansRegular;
+                        font-weight: normal;
+                        padding:  0 8px 10px;
+                        line-height: 1.6;
+                        font-size: 1.075rem;
+                        text-align: center;
+                        margin: 0 auto;
+                        @include min-screen(tablet) { font-size: 1.175rem; }
+                        @include min-screen(desktop) { font-size: 1.375rem; }
+                        @include min-screen(x-desktop) { font-size: 1.575rem; }
+                        @include min-screen(xl-desktop) { font-size: 1.875rem; }
+                    }
+                }
+                &--light {
+                    margin-top: 25px;
+                    background: $lightGray;
+                    @include min-screen(xl-mobile) { margin-top: 75px; }
+                    .box-content {
+                        border: $primaryBoxBorder;
+                        margin: 10px;
+                    }
+                    img {
+                        position: absolute;
+                        bottom: 0;                        
+                        left: 80%;                        
+                        @include min-screen(mobile) {
+                            @include transformX(-80%);
+                            @include rotate(90deg);
+                            right: unset;
+                            z-index: 20;
+                        }
+                        @include min-screen(xl-mobile) {
+                            bottom: 43px;
+                            right: -13px;
+                            left: unset;
+                        }
+                    }
+                }     
+                &--transparent {
+                    position: relative;
+                    top: -15px;
+                    @include transformY(-15px);
+                    z-index: 100;
+                    img {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        @include transformX(-50%);
+                    }
+                    .box-content {
+                        @include min-screen(mobile) {
+                            margin-top: 90px;
+                        }
+                        p {
+                            margin-bottom: 54px;    
+                            @include min-screen(mobile) {
+                                margin-bottom: 84px;
+                            }
+                            @include min-screen(xl-mobile) { margin-bottom: 65px; }
+                            @include min-screen(x-desktop) { margin-bottom: 45px; }        
+                            @include min-screen(xl-desktop) { margin-bottom: 25px; }        
+                        }
+                    }
+                }
+                &--colored {
+                    background: $secondaryBoxBg;
+                    .box-content {
+                        border: $secondaryBoxBorder;
+                        margin: 15px;
+                        padding: 25px;
+                        @include min-screen(tablet) { padding: 25px; }
+                        @include min-screen(desktop) { padding: 25px 27px; }
+                        @include min-screen(x-desktop) { padding: 40px; }
+                        @include min-screen(xl-desktop) { padding: 45px 27px; }
+                        p {
+                            color: $lightGray;
+                            text-align: left;
+                            font-family: $timesNewRoman;
+                            font-weight: 400;
+                            font-size: 1.5rem;
+                            line-height: 1.4;
+                            padding: 0;
+                            @include min-screen(desktop) { font-size: 1.8rem; }
+                            @include min-screen(x-desktop) { font-size: 2.2rem; }
+                            @include min-screen(xl-desktop) { font-size: 2.8rem; }
+                        }
+                    }
+                }
+            }
+
+            .column-100 {
+                width: 100%;
+                float: left;
+                clear: left;
+                &--primary {
+                    @include transformY(-75px);
+                }
+                .box-fullwidth {
+                    background: $lightGray;
+                    position: relative;
+                    @include min-screen(mobile) {
+                        height: 550px;
+                    }            
+                    & > img {
+                        width: 100%;
+                        max-width: 36px;
+                        height: auto;
+                        position: absolute;
+                        left: 50px;
+                        top: -64px;
+                        font-size: 1.5rem;
+                        @include min-screen(mobile) {
+                            max-width: 54px;
+                            top: -45px;
+                        }
+                        @include min-screen(xl-mobile) { max-width: 50px; top: -30px; }
+                        @include min-screen(tablet) { max-width: 78px; top: -64px; }
+                        @include min-screen(desktop) { max-width: 84px; }
+                        @include min-screen(x-desktop) { max-width: 92px; }
+                        @include min-screen(xl-desktop) { max-width: 97px; }
+                    }
+                    .columns {
+                        padding: 35px 60px;
+                        min-height: 120px;
+                        @include min-screen(mobile) {
+                            padding: {
+                                top: 35px;
+                                left: 54px;
+                                bottom: 0;
+                            }
+                        }
+                        @include min-screen(tablet) { padding: 45px 70px; min-height: 380px;}
+                        @include min-screen(desktop) { padding: 55px 80px; min-height: 420px; }
+                        @include min-screen(x-desktop) { padding: 65px 90px; min-height: 520px; }
+                        @include min-screen(xl-desktop) { padding: 75px 100px; }
+
+                        .lines {
+                            width: 100%;
+                            z-index: 40;
+                            position: absolute;
+                            top: 100%;
+                            right: -120%;
+                            @include transformX(-65%);
+                            @include min-screen(mobile) {
+                                top: 400px;
+                            }
+                            img {
+                                width: 47vw;
+                                height: auto;
+                                @include min-screen(mobile) {
+                                    width: 360px;
+                                }
+                            }
+                        }
+
+                        .column-left {
+                            float: left;
+                            width: 100%;
+                            max-width: 191px;
+                            @include min-screen(mobile) {
+                                max-width: 300px;
+                                padding-top: 24px;
+                            }
+                            @include min-screen(tablet) { max-width: 291px; }
+                            @include min-screen(desktop) { max-width: 391px; }
+                            @include min-screen(x-desktop) { max-width: 491px; }
+                            @include min-screen(xl-desktop) { max-width: 591px; }
+                            h2 {
+                                font-family: $timesNewRoman;
+                                font-weight: 400;
+                                line-height: 1.4;
+                                font-size: 1.5rem;
+                                @include min-screen(xl-mobile) { font-size: 1.5rem; }
+                                @include min-screen(tablet) { font-size: 2rem; }
+                                @include min-screen(desktop) { font-size: 2.5rem; }
+                                @include min-screen(x-desktop) { font-size: 3rem; }
+                                @include min-screen(xl-desktop) { font-size: 3.5rem; }
+                                .key-info {
+                                    display: inline-block;
+                                    font-weight: 400;
+                                    line-height: 1.4;
+                                }
+                            }
+                            .separator {
+                                content: '';
+                                display: block;
+                                width: 50vw;
+                                height: 2px;
+                                background: $dark;
+                                margin: 35px 0;
+                                @include transformX(-50%);
+                                @include min-screen(desktop) { margin: 50px 0; }
+                            }
+                            p {
+                                font-family: $openSansRegular;
+                                font-weight: normal;
+                                font-size: 1.2rem;
+                                @include min-screen(desktop) {
+                                    font-size: 1.6em;
+                                }
+                            }
+                        }
+                    }
+                    .column-right {
+                        position: absolute;
+                        z-index: 30;
+                        @include min-screen(mobile) {
+                            left: 50%;
+                            @include transformX(-50%);
+                            top: 250px;
+                        }
+                        @include min-screen(xl-mobile) { top: 156px; right: 5%; }
+                        @include min-screen(tablet) { top: 124px; right: 69px; }
+                        @include min-screen(desktop) { top: 215px; right: 96px; }
+                        @include min-screen(x-desktop) { top: 240px; right: 140px }
+                        @include min-screen(xl-desktop) { right: 110px }
+                        picture {
+                            width: 100%;
+                            @include min-screen(mobile) {
+                                width: 100vw;
+                                overflow: hidden;
+                                height: 300px;
+                            }
+                            img {
+                                width: 100vw;                                
+                                height: auto;
+                                @include min-screen(mobile) {
+                                    max-width: 360px;
+                                }
+                                @include min-screen(xl-mobile) { max-width: 320px; }
+                                @include min-screen(tablet) { max-width: 460px; }
+                                @include min-screen(desktop) { max-width: 480px; }
+                                @include min-screen(x-desktop) { max-width: 550px; }
+                                @include min-screen(xl-desktop) { max-width: 650px; }
+                            }
+                        }
+                    }
+                    .column-left-bottom {
+                        width: 100%;
+                        max-width: 460px;
+                        position: absolute;
+                        left: 0;
+                        top: 310px;
+                        @include min-screen(mobile) { 
+                            top: 480px;
+                            max-width: 100%;
+                        }
+                        @include min-screen(xl-mobile) { top: 264px; max-width: 100%;}
+                        @include min-screen(tablet) { top: 310px; max-width: 820px;}
+                        @include min-screen(desktop) { top: 410px; max-width: 845px; }
+                        @include min-screen(x-desktop) { max-width: 954px; top: 460px;}
+                        @include min-screen(xl-desktop) { max-width: 1140px;  top: 500px;}
+                        @include min-screen(xxl-desktop) { max-width: 1200px; }
+                        figure.geomap {
+                            margin: 0;
+                            padding: 0;
+                            position: relative;
+                            figcaption.geomap-icon {
+                                position: absolute;
+                                top: 23.75%;
+                                left: 38.35%;
+                                picture {
+                                    width: 100%;
+                                    img {
+                                        width: 49%;
+                                        height: auto;
+                                        @include min-screen(tablet) { width: 59%; }
+                                        @include min-screen(desktop) { width: 69%; }
+                                        @include min-screen(x-desktop) { width: 78%; }
+                                        @include min-screen(xl-desktop) { width: 89%; }
+                                    }
+                                }
+                            }
+                        }    
+                    }
+                }
+            }
+
+            .column-50-right-ps {
+                margin: 0 auto;
+                display: block;
+                width: 50%;
+                float: right;
+                @include transformY(290px);
+                @include min-screen(mobile) {
+                    width: 100%;
+                    @include transformY(0);
+                    float: none;
+                }
+                @include min-screen(xl-mobile) { @include transformY(250px); }
+                @include min-screen(tablet) { @include transformY(190px); }
+                @include min-screen(desktop) { @include transformY(295px); }
+                @include min-screen(x-desktop) { @include transformY(300px); }
+                @include min-screen(xl-desktop) { @include transformY(400px); }
+                .post-scriptum {
+                    color: $postScriptum;
+                    margin-bottom: 5px;
+                    font-size: 3rem;
+                }
+                .h2-right {
+                    text-align: right;
+                    font-family: $timesNewRoman;
+                    font-weight: 700;
+                    line-height: 1.4;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    background: $lightGray;
+    height: 178px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .copyright {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        @include min-screen(xl-mobile) { max-width: 768px; }
+        @include min-screen(tablet) { max-width: 960px; }
+        @include min-screen(desktop) { max-width: 1024px; }
+        @include min-screen(x-desktop) { max-width: 1200px; }
+        @include min-screen(xl-desktop) { max-width: 1366px; }
+        @include min-screen(xxl-desktop) { max-width: 1540px; }
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            font-family: $timesNewRoman;
+            width: 50%;
+            @include min-screen(mobile) {
+                width: 100%;
+                font-size: 16px;
+            }
+            @include min-screen(xl-mobile) { font-size: 16px; }
+            @include min-screen(tablet) { font-size: 18px; }
+            @include min-screen(xl-desktop) { font-size: 20px; }
+            span {
+                display: block;
+            }
+        }
+        a {
+            color: $keyTextColor;
+            text-decoration: none;
+        }
+    }
+}
